@@ -4,19 +4,17 @@
 
 
 
-
-
 int main()
 {
  
   led.port = PORTA;
   led.pin  = PIN_1;
-  led.speed= MHz_2;
-
+  led.mode = OUT;
+  startPin(led);
     
  while(1)
  {
-    out(led,1);
+    
    
   }
 

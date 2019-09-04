@@ -6,11 +6,12 @@
 #define PIN_1     GPIO_Pin_1
 #define PORTA     GPIOA
 #define MHz_2     GPIO_Speed_2MHz 
+#define OUT       GPIO_Mode_Out_PP
 
 typedef struct{
   uint16_t pin;
   uint16_t port;
-  uint16_t speed;
+  uint16_t mode;
 }basic;
 
 void out(basic pin,int value);
