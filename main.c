@@ -1,9 +1,6 @@
 #include "gpio.h"
 
  basic led;
-
-
-
 int main()
 {
  
@@ -11,7 +8,6 @@ int main()
   led.pin  = PIN_1;
   led.mode = OUT;
   startPin(led);
-    
  while(1)
  {
     

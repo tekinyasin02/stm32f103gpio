@@ -29,31 +29,49 @@ Project File Date:  08/30/2019
 Rebuild target 'Target 1'
 assembling startup_stm32f10x_md.s...
 compiling misc.c...
-compiling stm32f10x_usart.c...
 compiling main.c...
-gpio.h(20): warning:  #1-D: last line of file ends without a newline
+gpio.h(23): warning:  #1-D: last line of file ends without a newline
   #endif
-main.c(10): warning:  #513-D: a value of type "GPIO_TypeDef *" cannot be assigned to an entity of type "uint16_t"
+main.c(9): warning:  #513-D: a value of type "GPIO_TypeDef *" cannot be assigned to an entity of type "uint16_t"
     led.port = PORTA;
-main.c(13): warning:  #223-D: function "startPin" declared implicitly
-    startPin(led);
-main.c(21): warning:  #1-D: last line of file ends without a newline
+main.c(19): warning:  #1-D: last line of file ends without a newline
   }
-main.c: 4 warnings, 0 errors
-compiling stm32f10x_rcc.c...
-compiling stm32f10x_gpio.c...
+main.c: 3 warnings, 0 errors
 compiling gpio.c...
-gpio.h(20): warning:  #1-D: last line of file ends without a newline
+gpio.h(23): warning:  #1-D: last line of file ends without a newline
   #endif
 gpio.c(10): warning:  #188-D: enumerated type mixed with another type
      GPIO_InitStruct.GPIO_Mode = gelen.mode;
 gpio.c(12): warning:  #167-D: argument of type "uint16_t" is incompatible with parameter of type "GPIO_TypeDef *"
-     GPIO_Init(gelen.port, &GPIO_InitStruct); 
-gpio.c: 3 warnings, 0 errors
+     GPIO_Init(gelen.port, &GPIO_InitStruct);  
+gpio.c(18): warning:  #42-D: operand types are incompatible ("uint16_t" and "GPIO_TypeDef *")
+    if (gelen.port == GPIOA)
+gpio.c(20): warning:  #513-D: a value of type "GPIO_TypeDef *" cannot be assigned to an entity of type "uint16_t"
+     GPIOx=GPIOA;  
+gpio.c(42): error:  #44: expression must have pointer type
+      tmpreg = gelen.port->CRL;
+gpio.c(59): error:  #44: expression must have pointer type
+            GPIOx->BRR = (((uint32_t)0x01) << pinpos);
+gpio.c(64): error:  #44: expression must have pointer type
+            if (gelen->mode == GPIO_Mode_IPU)
+gpio.c(66): error:  #44: expression must have pointer type
+              GPIOx->BSRR = (((uint32_t)0x01) << pinpos);
+gpio.c(71): error:  #44: expression must have pointer type
+      GPIOx->CRL = tmpreg;
+gpio.c(77): error:  #44: expression must have pointer type
+      tmpreg = GPIOx->CRH;
+gpio.c(94): error:  #44: expression must have pointer type
+            GPIOx->BRR = (((uint32_t)0x01) << (pinpos + 0x08));
+gpio.c(99): error:  #44: expression must have pointer type
+            GPIOx->BSRR = (((uint32_t)0x01) << (pinpos + 0x08));
+gpio.c(103): error:  #44: expression must have pointer type
+      GPIOx->CRH = tmpreg;
+gpio.c: 5 warnings, 9 errors
+compiling stm32f10x_gpio.c...
+compiling stm32f10x_usart.c...
+compiling stm32f10x_rcc.c...
 compiling system_stm32f10x.c...
-linking...
-Program Size: Code=1076 RO-data=268 RW-data=8 ZI-data=1632  
-".\Objects\gpio.axf" - 0 Error(s), 7 Warning(s).
+".\Objects\gpio.axf" - 9 Error(s), 8 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -108,7 +126,8 @@ Package Vendor: Keil
    * Component: Keil::Device:StdPeriph Drivers:USART:3.5.0
       Include file:  Device\StdPeriph_Driver\inc\stm32f10x_usart.h
       Source file:   Device\StdPeriph_Driver\src\stm32f10x_usart.c
-Build Time Elapsed:  00:00:01
+Target not created.
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

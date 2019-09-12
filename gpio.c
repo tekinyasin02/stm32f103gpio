@@ -9,6 +9,5 @@ void startPin(basic gelen)
    GPIO_InitStruct.GPIO_Speed=GPIO_Speed_2MHz;
    GPIO_InitStruct.GPIO_Mode = gelen.mode;
    
-   GPIO_Init(gelen.port, &GPIO_InitStruct); 
-  
+   GPIO_Init(gelen.port, &GPIO_InitStruct);   
 }
